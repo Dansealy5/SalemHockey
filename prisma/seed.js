@@ -1,6 +1,8 @@
-const { PrismaClient } = require('@prisma/client');
-const { faker } = require('@faker-js/faker');
-const bcrypt = require('bcrypt');
+import pkg from '@prisma/client';
+const { PrismaClient } = pkg;
+
+import { faker } from '@faker-js/faker';
+import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
@@ -117,11 +119,9 @@ async function main() {
   console.log("Database seeded");
 }
 
-main()
-  .catch((e) => {
+main().catch((e) => {
     console.error(e);
     process.exit(1);
-  })
-  .finally(async () => {
+  }).finally(async () => {
     await prisma.$disconnect();
   });
