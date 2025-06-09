@@ -1,4 +1,4 @@
-const API = "https:/localhost:5173/api/announcements";
+const API = "https:/localhost:3000/api/announcements";
 
 export async function fetchAnnouncements() {
     try {
@@ -11,6 +11,38 @@ export async function fetchAnnouncements() {
     }
 }
 
-export async function createAnnouncement(params) {
-    
+export async function createAnnouncement(data, token) {
+  try {
+    const res = await fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) throw new Error(`Error ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error("Error creating announcement:", err);
+    throw err;
+  }
+}
+
+export async function deleteAnnouncement(id, token) {
+  try {
+    const res = await fetch(`${API}/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!res.ok) throw new Error(`Error ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error("Error deleting announcement:", err);
+    throw err;
+  }
 }

@@ -1,4 +1,4 @@
-const API = "https://localhost:5173/api/auth";
+const API = "https://localhost:3000/api/auth";
 
 export async function registerUser({ name, email, password, role }) {
   try {

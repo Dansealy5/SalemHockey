@@ -1,1 +1,1 @@
-const API = "https:/localhost:5173/api/notifications";
+const API = "https:/localhost:3000/api/notifications";
