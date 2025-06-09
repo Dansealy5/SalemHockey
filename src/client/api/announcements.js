@@ -1,4 +1,4 @@
-const API = "https:/localhost:3000/api/announcements";
+const API = "http://localhost:3000/api/announcements";
 
 export async function fetchAnnouncements() {
     try {

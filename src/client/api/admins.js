@@ -1,4 +1,4 @@
-const API = "https:/localhost:3000/api/admins";
+const API = "http://localhost:3000/api/admins";
 
 export async function fetchAdmins() {
     try {
